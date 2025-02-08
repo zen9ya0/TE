@@ -6,7 +6,7 @@ SERVER_PORT = 8080
 DEBUG_MODE = False
 
 # API 設定
-API_KEY = "s2pNbV6HyN6UE26r7nK6Boa8UGmPmCKv"
+API_KEY = "{YOUR API KEY}"
 
 # 檔案設定
 UPLOAD_FOLDER = 'uploads'
