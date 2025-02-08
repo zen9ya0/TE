@@ -19,7 +19,7 @@ file_manager = FileManager(retention_minutes=1)
 
 # 設定
 ALLOWED_EXTENSIONS = {'tif','exe', 'dll', 'pdf', 'doc', 'docx', 'xls', 'xlsx', 'zip', 'rar', '7z','txt','csv','js','php','html','css','sql','xml','json','yaml','yml','ini','log','md','sh','bat','ps1','ps2','ps3','ps4','ps5','ps6','ps7','ps8','ps9','ps10', 'eml', 'msg'}
-API_KEY = "s2pNbV6HyN6UE26r7nK6Boa8UGmPmCKv"
+API_KEY = "{YOUR API KEY}"
 UPLOAD_FOLDER = '/tmp/analytic_file'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
