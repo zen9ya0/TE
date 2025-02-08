@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>惡意檔案分析系統</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>惡意檔案分析系統</h1>
+        
+        <div class="tabs">
+            <button class="tab-btn" data-tab="batch">批次分析</button>
+            <button class="tab-btn" data-tab="mail">郵件分析</button>
+            <button class="tab-btn" data-tab="upload">檔案上傳</button>
+            <button class="tab-btn" data-tab="query">結果查詢</button>
+        </div>
+
+        <div id="batchTab" class="tab-content active">
+            <div class="batch-section">
+                <form id="batchForm">
+                    <input type="file" id="batchInput" name="files" multiple required>
+                    <div class="batch-options">
+                        <label>
+                            <input type="checkbox" id="autoQuery" checked>
+                            自動查詢分析狀態
+                        </label>
+                    </div>
+                    <button type="submit">批次上傳分析</button>
+                </form>
+                <div id="batchProgress" class="batch-progress">
+                    <h3>批次處理進度</h3>
+                    <div id="progressList"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mailTab" class="tab-content">
+            <div class="mail-section">
+                <form id="mailForm">
+                    <input type="file" id="mailInput" name="files" multiple accept=".eml,.msg" required>
+                    <button type="submit">開始分析</button>
+                </form>
+                <div class="mail-controls">
+                    <button id="clearMailResults" class="clear-btn">清除結果</button>
+                </div>
+                <div id="mailProgress" class="mail-progress">
+                    <h3>分析進度</h3>
+                    <div id="mailProgressList"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="uploadTab" class="tab-content">
+            <div class="upload-section">
+                <form id="uploadForm">
+                    <input type="file" id="fileInput" name="file" required>
+                    <button type="submit">上傳並分析</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="queryTab" class="tab-content">
+            <div class="query-section">
+                <form id="queryForm">
+                    <div class="input-group">
+                        <input type="text" id="queryInput" placeholder="請輸入 MD5/SHA1/SHA256 雜湊值" required>
+                        <button type="submit">查詢</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <p>處理中，請稍候...</p>
+        </div>
+
+        <div id="result" class="result" style="display: none;">
+            <h2>分析結果</h2>
+            <div class="result-content">
+                <div class="status-info">
+                    <h3>狀態資訊</h3>
+                    <div id="statusInfo"></div>
+                </div>
+                <div class="analysis-info">
+                    <h3>分析資訊</h3>
+                    <div id="analysisInfo"></div>
+                </div>
+                <div class="raw-json">
+                    <h3>原始資料</h3>
+                    <pre id="rawJson"></pre>
+                </div>
+            </div>
+        </div>
+
+        <div id="error" class="error" style="display: none;">
+            <h3>錯誤</h3>
+            <p id="errorMessage"></p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 

@@ -1,0 +1,590 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.upload-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+}
+
+.result {
+    margin-top: 20px;
+}
+
+.result-content {
+    display: grid;
+    gap: 20px;
+}
+
+.status-info, .analysis-info, .raw-json {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+pre {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+.error {
+    padding: 15px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    color: #721c24;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.info-item:hover {
+    background-color: #e9ecef;
+}
+
+.info-label {
+    font-weight: 500;
+    color: #495057;
+    flex: 0 0 150px;
+}
+
+.info-value {
+    flex: 1;
+    text-align: right;
+    word-break: break-all;
+}
+
+.raw-json {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.raw-json pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.section-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2196F3;
+    margin: 15px 0 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.status-danger {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.status-warning {
+    color: #f57c00;
+    font-weight: bold;
+}
+
+.status-safe {
+    color: #388e3c;
+    font-weight: bold;
+}
+
+.severity-high {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.severity-medium {
+    color: #f57c00;
+    font-weight: bold;
+}
+
+.severity-low {
+    color: #388e3c;
+    font-weight: bold;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666;
+    position: relative;
+}
+
+.tab-btn.active {
+    color: #2196F3;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #2196F3;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.query-section {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.input-group button {
+    padding: 8px 20px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.input-group button:hover {
+    background-color: #1976D2;
+}
+
+.batch-section {
+    background-color: #e8f4f8;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.batch-options {
+    margin: 10px 0;
+}
+
+.batch-progress {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.batch-progress-info {
+    background-color: #e3f2fd;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #1976d2;
+}
+
+.progress-item {
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.file-info {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.file-details {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 4px;
+}
+
+.filename {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.status-pending {
+    background-color: #9e9e9e;
+    color: white;
+}
+
+.status-analyzing {
+    background-color: #2196F3;
+    color: white;
+}
+
+.status-completed {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.status-error {
+    background-color: #f44336;
+    color: white;
+}
+
+.mail-section {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.mail-progress {
+    margin-top: 20px;
+}
+
+.mail-item {
+    margin: 10px 0;
+    padding: 15px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.mail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.mail-filename {
+    font-weight: bold;
+}
+
+.mail-status {
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.attachment-list {
+    margin-left: 20px;
+}
+
+.attachment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin: 5px 0;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+}
+
+.attachment-name {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.attachment-verdict {
+    padding: 3px 6px;
+    border-radius: 2px;
+    font-size: 0.85em;
+}
+
+.verdict {
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 1em;
+}
+
+.verdict-malicious {
+    background-color: #dc3545;
+    color: white;
+}
+
+.verdict-benign {
+    background-color: #28a745;
+    color: white;
+}
+
+.verdict-suspicious {
+    background-color: #ffc107;
+    color: black;
+}
+
+.verdict-unknown {
+    background-color: #6c757d;
+    color: white;
+}
+
+.file-details {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 4px;
+}
+
+.md5 {
+    margin-right: 15px;
+}
+
+.mail-info {
+    flex: 1;
+}
+
+.mail-md5 {
+    font-family: monospace;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 4px;
+}
+
+.attachment-info {
+    flex: 1;
+}
+
+.attachment-md5 {
+    font-family: monospace;
+    font-size: 0.85em;
+    color: #666;
+    margin-top: 2px;
+}
+
+.mail-details, .attachment-details {
+    display: flex;
+    gap: 20px;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 4px;
+}
+
+.analysis-time {
+    font-family: monospace;
+    color: #2196F3;
+}
+
+.mail-info, .attachment-info {
+    flex: 1;
+}
+
+.attachment-details {
+    font-size: 0.85em;
+}
+
+.attachment-item {
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.attachment-name {
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.mail-controls {
+    margin: 10px 0;
+    text-align: right;
+}
+
+.clear-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.clear-btn:hover {
+    background-color: #c82333;
+}
+
+.batch-progress-header {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.file-status {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.file-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.file-status-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.file-md5 {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.verdict {
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 1em;
+}
+
+.verdict-malicious {
+    background-color: #dc3545;
+    color: white;
+}
+
+.verdict-benign {
+    background-color: #28a745;
+    color: white;
+}
+
+.verdict-suspicious {
+    background-color: #ffc107;
+    color: black;
+}
+
+.verdict-unknown {
+    background-color: #6c757d;
+    color: white;
+}
+
+.status {
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.status.completed {
+    background-color: #28a745;
+    color: white;
+}
+
+.status.analyzing {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.status.error {
+    background-color: #dc3545;
+    color: white;
+}
+
+.duration {
+    color: #666;
+    font-size: 0.9em;
+}
+
+.severity, .confidence {
+    padding: 3px 8px;
+    margin: 0 5px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+.file-verdict {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* ... 其他 CSS 樣式 ... */ 
